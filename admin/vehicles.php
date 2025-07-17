@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 if (!has_role('admin')) {
-    redirect('/vehicle_marketplace/index.php');
+    redirect('../../vehicle_marketplace/index.php');
 }
 
 // Pagination
@@ -54,15 +54,24 @@ if (isset($_POST['delete_vehicle'])) {
     $stmt->execute();
     
     // Redirect to refresh the page
-    redirect('/vehicle_marketplace/admin/vehicles.php');
+    redirect('../../vehicle_marketplace/admin/vehicles.php');
 }
 ?>
 
 <div class="admin-container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Manage Vehicles</h1>
     
     <div class="admin-actions">
-        <a href="/vehicle_marketplace/admin/dashboard.php" class="btn btn-back">Back to Dashboard</a>
+        <a href="../../vehicle_marketplace/admin/dashboard.php" class="btn btn-back">Back to Dashboard</a>
     </div>
     
     <table class="admin-table">
@@ -93,8 +102,8 @@ if (isset($_POST['delete_vehicle'])) {
                     <td><span class="status-badge <?php echo strtolower($vehicle['status']); ?>"><?php echo ucfirst($vehicle['status']); ?></span></td>
                     <td><?php echo date('M j, Y', strtotime($vehicle['created_at'])); ?></td>
                     <td class="actions-cell">
-                        <a href="/vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle['id']; ?>" class="btn btn-view">View</a>
-                        <a href="/vehicle_marketplace/vehicles/edit.php?id=<?php echo $vehicle['id']; ?>" class="btn btn-edit">Edit</a>
+                        <a href="../../vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle['id']; ?>" class="btn btn-view">View</a>
+                        <a href="../../vehicle_marketplace/vehicles/edit.php?id=<?php echo $vehicle['id']; ?>" class="btn btn-edit">Edit</a>
                         <form method="POST" onsubmit="return confirm('Are you sure you want to delete this vehicle?');">
                             <input type="hidden" name="vehicle_id" value="<?php echo $vehicle['id']; ?>">
                             <button type="submit" name="delete_vehicle" class="btn btn-delete">Delete</button>
@@ -122,4 +131,4 @@ if (isset($_POST['delete_vehicle'])) {
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

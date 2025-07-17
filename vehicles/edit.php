@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 if (!is_logged_in()) {
     redirect('/vehicle_marketplace/auth/login.php');
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $primary_image_set = false;
     
     // Check if existing primary image is still selected
-    if (isset($_POST['existing_primary']) {
+    if (isset($_POST['existing_primary'])) {
         $primary_image_set = true;
     }
     
@@ -189,13 +189,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Edit Vehicle Listing</h1>
     
     <?php if ($success): ?>
         <div class="alert alert-success">
             <p>Your vehicle listing has been updated successfully!</p>
-            <a href="/vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle_id; ?>" class="btn btn-primary">View Listing</a>
-            <a href="/vehicle_marketplace/vehicles/list.php" class="btn btn-secondary">Back to Listings</a>
+            <a href="../../vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle_id; ?>" class="btn btn-primary">View Listing</a>
+            <a href="../../vehicle_marketplace/vehicles/list.php" class="btn btn-secondary">Back to Listings</a>
         </div>
     <?php else: ?>
         <?php if (!empty($errors)): ?>
@@ -372,4 +381,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 if (!is_logged_in()) {
     redirect('/vehicle_marketplace/auth/login.php');
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $_SESSION['user_id'];
         
         $sql = "INSERT INTO vehicles (
-            user_id, title, type, `condition`, make, model, year, price, 
+            user_id, title, type, `conditions`, make, model, year, price, 
             transmission, fuel_type, mileage, description, location, 
             contact_name, contact_phone
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -126,13 +126,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Sell Your Vehicle</h1>
     
     <?php if ($success): ?>
         <div class="alert alert-success">
             <p>Your vehicle has been listed successfully!</p>
-            <a href="/vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle_id; ?>" class="btn btn-primary">View Listing</a>
-            <a href="/vehicle_marketplace/pages/sell.php" class="btn btn-secondary">List Another Vehicle</a>
+            <a href="../../vehicle_marketplace/vehicles/view.php?id=<?php echo $vehicle_id; ?>" class="btn btn-primary">View Listing</a>
+            <a href="../../vehicle_marketplace/pages/sell.php" class="btn btn-secondary">List Another Vehicle</a>
         </div>
     <?php else: ?>
         <?php if (!empty($errors)): ?>
@@ -270,4 +279,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $limit = 12;
@@ -17,6 +17,15 @@ $total_pages = ceil($total_vehicles / $limit);
 ?>
 
 <div class="container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Available Vehicles</h1>
     <div class="vehicle-grid">
         <?php while ($vehicle = $vehicles->fetch_assoc()): ?>
@@ -58,4 +67,4 @@ $total_pages = ceil($total_vehicles / $limit);
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

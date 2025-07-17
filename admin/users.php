@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 if (!has_role('admin')) {
     redirect('/vehicle_marketplace/index.php');
@@ -57,10 +57,19 @@ if (isset($_POST['update_role'])) {
 ?>
 
 <div class="admin-container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Manage Users</h1>
     
     <div class="admin-actions">
-        <a href="/vehicle_marketplace/admin/dashboard.php" class="btn btn-back">Back to Dashboard</a>
+        <a href="../../vehicle_marketplace/admin/dashboard.php" class="btn btn-back">Back to Dashboard</a>
     </div>
     
     <table class="admin-table">
@@ -130,4 +139,4 @@ if (isset($_POST['update_role'])) {
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

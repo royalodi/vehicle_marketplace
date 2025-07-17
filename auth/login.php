@@ -3,7 +3,7 @@ require_once __DIR__ . '../../includes/header.php';
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once __DIR__ . '../config/database.php';
+    require_once __DIR__ . '../../config/database.php';
     
     $email = sanitize($_POST['email']);
     $password = sanitize($_POST['password']);

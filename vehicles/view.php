@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 $vehicle_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $vehicle = get_vehicle($vehicle_id);
@@ -14,6 +14,15 @@ $is_admin_or_manager = has_role('admin') || has_role('manager');
 ?>
 
 <div class="container vehicle-details">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <div class="vehicle-header">
         <h1><?php echo htmlspecialchars($vehicle['title']); ?></h1>
         <p class="price">$<?php echo number_format($vehicle['price'], 2); ?></p>
@@ -66,7 +75,7 @@ $is_admin_or_manager = has_role('admin') || has_role('manager');
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Condition:</span>
-                    <span class="spec-value"><?php echo ucfirst($vehicle['condition']); ?></span>
+                    <span class="spec-value"><?php echo ucfirst($vehicle['conditions']); ?></span>
                 </div>
                 <div class="spec-item">
                     <span class="spec-label">Mileage:</span>
@@ -141,4 +150,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>

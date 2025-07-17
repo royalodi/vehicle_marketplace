@@ -3,6 +3,15 @@ require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="container">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Buy Vehicles</h1>
     
     <div class="search-filters">
@@ -29,7 +38,7 @@ require_once __DIR__ . '/../includes/header.php';
                     <select id="model" name="model">
                         <option value="">All Models</option>
                         <?php
-                        if (isset($_GET['make']) {
+                        if (isset($_GET['make'])) {
                             $make = sanitize($_GET['make']);
                             $sql = "SELECT DISTINCT model FROM vehicles WHERE make = ? ORDER BY model";
                             $stmt = $conn->prepare($sql);
@@ -86,7 +95,7 @@ require_once __DIR__ . '/../includes/header.php';
                 
                 <div class="filter-group">
                     <button type="submit" class="btn btn-primary">Apply Filters</button>
-                    <a href="/vehicle_marketplace/pages/buy.php" class="btn btn-secondary">Reset</a>
+                    <a href="../../vehicle_marketplace/pages/buy.php" class="btn btn-secondary">Reset</a>
                 </div>
             </div>
         </form>
@@ -166,7 +175,7 @@ require_once __DIR__ . '/../includes/header.php';
                             <?php if ($vehicle['image_path']): ?>
                                 <img src="<?php echo $vehicle['image_path']; ?>" alt="<?php echo htmlspecialchars($vehicle['title']); ?>">
                             <?php else: ?>
-                                <img src="/vehicle_marketplace/assets/images/no-image.jpg" alt="No image available">
+                                <img src="../../vehicle_marketplace/assets/images/no-image.jpg" alt="No image available">
                             <?php endif; ?>
                         </div>
                         <div class="vehicle-info">
@@ -182,7 +191,7 @@ require_once __DIR__ . '/../includes/header.php';
         <?php else: ?>
             <div class="no-results">
                 <p>No vehicles found matching your criteria.</p>
-                <a href="/vehicle_marketplace/pages/buy.php" class="btn btn-primary">Reset Filters</a>
+                <a href="../../vehicle_marketplace/pages/buy.php" class="btn btn-primary">Reset Filters</a>
             </div>
         <?php endif; ?>
     </div>
@@ -213,4 +222,4 @@ document.getElementById('make').addEventListener('change', function() {
 });
 </script>
 
-<?php require_once __DIR__ . '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

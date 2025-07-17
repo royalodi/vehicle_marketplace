@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '../../includes/header.php';
 
 if (!has_role('admin')) {
-    redirect('/vehicle_marketplace/index.php');
+    redirect('../../vehicle_marketplace/index.php');
 }
 
 // Get stats for dashboard
@@ -31,6 +31,15 @@ $recent_vehicles = $conn->query($sql);
 ?>
 
 <div class="admin-dashboard">
+
+<!-- Link external CSS files for styling -->
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/style.css">
+<link rel="stylesheet" href="../../vehicle_marketplace/assets/css/responsive.css">
+
+<!-- Link external JavaScript files -->
+<!-- Main JavaScript file for site functionality -->
+<script src="../../vehicle_marketplace/assets/js/main.js" defer></script>
+
     <h1>Admin Dashboard</h1>
     
     <div class="stats-grid">
@@ -79,7 +88,7 @@ $recent_vehicles = $conn->query($sql);
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            <a href="/vehicle_marketplace/admin/users.php" class="btn btn-view-all">View All Users</a>
+            <a href="../../vehicle_marketplace/admin/users.php" class="btn btn-view-all">View All Users</a>
         </div>
         
         <div class="recent-section">
@@ -108,9 +117,9 @@ $recent_vehicles = $conn->query($sql);
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            <a href="/vehicle_marketplace/admin/vehicles.php" class="btn btn-view-all">View All Vehicles</a>
+            <a href="../../vehicle_marketplace/admin/vehicles.php" class="btn btn-view-all">View All Vehicles</a>
         </div>
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '../../includes/footer.php'; ?>
